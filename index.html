@@ -876,6 +876,51 @@
             opacity: 0.9;
         }
 
+        /* Pływający przycisk Facebook w rogu ekranu */
+        .floating-fb {
+            position: fixed;
+            right: 18px;
+            bottom: 90px; /* nad paskiem "Zadzwoń teraz" na mobile */
+            z-index: 960;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+        }
+
+        .floating-fb-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1877f2, #0f5ab8);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.6rem;
+            text-decoration: none;
+            border: 2px solid #ffffff;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .floating-fb-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.55);
+        }
+
+        .floating-fb-label {
+            background: rgba(0, 47, 71, 0.96);
+            color: #ffffff;
+            font-size: 0.8rem;
+            padding: 6px 10px;
+            border-radius: 999px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+            white-space: nowrap;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -937,6 +982,10 @@
             .hero-left,
             .hero-right {
                 padding: 20px 18px;
+            }
+            /* Na bardzo małych ekranach pokazujemy tylko kółko FB, bez dymka tekstowego */
+            .floating-fb-label {
+                display: none;
             }
         }
     </style>
@@ -1331,6 +1380,22 @@
 <footer>
     &copy; <span id="year"></span> <span class="brand">Domek Pod laskiem Niedzica</span> – nocleg w sercu Pienin
 </footer>
+
+<!-- Pływający przycisk do Facebooka -->
+<div class="floating-fb">
+    <a
+        class="floating-fb-btn"
+        href="https://www.facebook.com/p/Domek-Pod-Laskiem-Niedzica-100063775730744/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Otwórz Facebook Domek Pod laskiem Niedzica"
+    >
+        f
+    </a>
+    <div class="floating-fb-label">
+        Nowości z domku na Facebooku
+    </div>
+</div>
 
 <!-- Mobilny przycisk ZADZWOŃ TERAZ -->
 <div class="mobile-call-bar">
