@@ -6,7 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Domek Pod laskiem Niedzica – przytulny nocleg w sercu Pienin, blisko Jeziora Czorsztyńskiego i zamku w Niedzicy.">
     
-    <!-- Google Fonts -->
+    
+    <meta name="robots" content="index,follow">
+
+    <!-- Open Graph / Social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Domek Pod laskiem Niedzica – nocleg w sercu Pienin">
+    <meta property="og:description" content="Przytulny, całoroczny domek w Niedzicy – blisko Jeziora Czorsztyńskiego i zamku. Rezerwacje bezpośrednie: najlepsza cena.">
+    <meta property="og:image" content="img/hero-domek.jpg">
+    <!-- UZUPEŁNIJ po podpięciu domeny -->
+    <meta property="og:url" content="https://TWOJA-DOMENA.PL/">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Dane strukturalne (Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Domek Pod laskiem Niedzica",
+      "description": "Przytulny, całoroczny domek w Niedzicy – nocleg w sercu Pienin.",
+      "telephone": "+48 505 900 339",
+      "email": "domekpodlaskiem@poczta.onet.pl",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ul. Leśna 14",
+        "addressLocality": "Niedzica",
+        "postalCode": "34-441",
+        "addressCountry": "PL"
+      },
+      "url": "https://TWOJA-DOMENA.PL/",
+      "sameAs": [
+        "https://www.booking.com/Share-0rZTs29",
+        "https://www.facebook.com/p/Domek-Pod-Laskiem-Niedzica-100063775730744/"
+      ]
+    }
+    </script>
+<!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -1365,6 +1402,139 @@
                 justify-content: center;
             }
         }
+    
+
+        /* ===== GALERIA – PODZAKŁADKI (Aneks/Łazienka/Sypialnia/Zewnętrzne) ===== */
+        .gallery-subnav {
+            margin: 12px 0 10px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .gallery-subbtn {
+            border: 1px solid rgba(0,79,115,0.18);
+            background: #ffffff;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 0.85rem;
+            padding: 7px 12px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.18s ease;
+        }
+        .gallery-subbtn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+        }
+        .gallery-subbtn.active {
+            background: linear-gradient(135deg, #ffe394, #ffcc33);
+            border-color: rgba(0,0,0,0.08);
+            color: #332100;
+        }
+        .gallery-group { display: none; }
+        .gallery-group.active { display: block; }
+
+        /* ===== LIGHTBOX (powiększanie + strzałki + licznik + swipe) ===== */
+        .gallery-item { cursor: zoom-in; }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 5000;
+            padding: 16px;
+        }
+        .lightbox.active { display: flex; }
+
+        .lightbox-frame {
+            position: relative;
+            width: min(1100px, 96vw);
+            height: min(78vh, 720px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 14px;
+            box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .lb-topbar {
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            pointer-events: none;
+        }
+        .lb-counter {
+            pointer-events: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #fff;
+            font-size: 0.86rem;
+            font-weight: 800;
+            backdrop-filter: blur(10px);
+        }
+        .lb-close {
+            pointer-events: auto;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.10);
+            color: #fff;
+            font-weight: 900;
+            font-size: 20px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        .lb-close:hover { background: rgba(255,255,255,0.16); }
+
+        .lb-nav {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+        .lb-btn {
+            pointer-events: auto;
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.10);
+            color: #fff;
+            font-weight: 900;
+            font-size: 22px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        .lb-btn:hover { background: rgba(255,255,255,0.16); }
+
+        @media (max-width: 700px) {
+            .lb-btn { width: 42px; height: 42px; }
+            .lightbox-frame { height: min(72vh, 620px); }
+        }
+
     </style>
 </head>
 <body>
@@ -1540,48 +1710,70 @@
                 </div>
             </article>
         </section>
-
         <!-- GALERIA -->
-           <section class="tab-panel" id="tab-galeria">
-    <article class="card reveal">
-        <h2>Galeria zdjęć</h2>
+        <section class="tab-panel" id="tab-galeria">
+            <article class="card reveal">
+                <h2>Galeria zdjęć</h2>
+                <p class="highlight-note" style="margin-top:8px;">
+                    Kliknij zdjęcie, aby je powiększyć. Na telefonie możesz przewijać zdjęcia gestem (swipe).
+                </p>
 
-        <h3>Aneks kuchenny i salon</h3>
-        <div class="gallery-grid">
-            <div class="gallery-item reveal"><img src="img/aneks1.jpg"><span class="caption">Aneks kuchenny – ujęcie 1</span></div>
-            <div class="gallery-item reveal"><img src="img/aneks2.jpg"><span class="caption">Aneks kuchenny – ujęcie 2</span></div>
-            <div class="gallery-item reveal"><img src="img/aneks3.jpg"><span class="caption">Aneks kuchenny – ujęcie 3</span></div>
-            <div class="gallery-item reveal"><img src="img/aneks4.jpg"><span class="caption">Aneks kuchenny – ujęcie 4</span></div>
-            <div class="gallery-item reveal"><img src="img/aneks5.jpg"><span class="caption">Aneks kuchenny – ujęcie 5</span></div>
-            <div class="gallery-item reveal"><img src="img/aneks6.jpg"><span class="caption">Aneks kuchenny – ujęcie 6</span></div>
-        </div>
+                <div class="gallery-subnav" role="tablist" aria-label="Kategorie galerii">
+                    <button class="gallery-subbtn active" type="button" data-gallery-tab="aneks" role="tab" aria-selected="true">Aneks</button>
+                    <button class="gallery-subbtn" type="button" data-gallery-tab="lazienka" role="tab" aria-selected="false">Łazienka</button>
+                    <button class="gallery-subbtn" type="button" data-gallery-tab="sypialnia" role="tab" aria-selected="false">Sypialnia</button>
+                    <button class="gallery-subbtn" type="button" data-gallery-tab="zewnatrz" role="tab" aria-selected="false">Zewnętrzne</button>
+                </div>
 
-        <h3>Łazienka</h3>
-        <div class="gallery-grid">
-            <div class="gallery-item reveal"><img src="img/lazienka1.jpg"><span class="caption">Łazienka – ujęcie 1</span></div>
-            <div class="gallery-item reveal"><img src="img/lazienka2.jpg"><span class="caption">Łazienka – ujęcie 2</span></div>
-            <div class="gallery-item reveal"><img src="img/lazienka3.jpg"><span class="caption">Łazienka – ujęcie 3</span></div>
-        </div>
+                <!-- ANEKS -->
+                <div class="gallery-group active" data-gallery-group="aneks" role="tabpanel">
+                    <h3>Aneks kuchenny i salon</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item reveal"><img src="img/aneks1.jpg" alt="Aneks kuchenny i salon – ujęcie 1" loading="lazy" decoding="async"><span class="caption">Aneks kuchenny – ujęcie 1</span></div>
+                        <div class="gallery-item reveal"><img src="img/aneks2.jpg" alt="Aneks kuchenny i salon – ujęcie 2" loading="lazy" decoding="async"><span class="caption">Aneks kuchenny – ujęcie 2</span></div>
+                        <div class="gallery-item reveal"><img src="img/aneks3.jpg" alt="Aneks kuchenny i salon – ujęcie 3" loading="lazy" decoding="async"><span class="caption">Aneks kuchenny – ujęcie 3</span></div>
+                        <div class="gallery-item reveal"><img src="img/aneks4.jpg" alt="Aneks kuchenny i salon – ujęcie 4" loading="lazy" decoding="async"><span class="caption">Aneks kuchenny – ujęcie 4</span></div>
+                        <div class="gallery-item reveal"><img src="img/aneks5.jpg" alt="Aneks kuchenny i salon – ujęcie 5" loading="lazy" decoding="async"><span class="caption">Aneks kuchenny – ujęcie 5</span></div>
+                        <div class="gallery-item reveal"><img src="img/aneks6.jpg" alt="Aneks kuchenny i salon – ujęcie 6" loading="lazy" decoding="async"><span class="caption">Aneks kuchenny – ujęcie 6</span></div>
+                    </div>
+                </div>
 
-        <h3>Sypialnia</h3>
-        <div class="gallery-grid">
-            <div class="gallery-item reveal"><img src="img/sypialnia1.jpg"><span class="caption">Sypialnia – ujęcie 1</span></div>
-            <div class="gallery-item reveal"><img src="img/sypialnia2.jpg"><span class="caption">Sypialnia – ujęcie 2</span></div>
-            <div class="gallery-item reveal"><img src="img/sypialnia3.jpg"><span class="caption">Sypialnia – ujęcie 3</span></div>
-            <div class="gallery-item reveal"><img src="img/sypialnia4.jpg"><span class="caption">Sypialnia – ujęcie 4</span></div>
-        </div>
+                <!-- LAZIENKA -->
+                <div class="gallery-group" data-gallery-group="lazienka" role="tabpanel">
+                    <h3>Łazienka</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item reveal"><img src="img/lazienka1.jpg" alt="Łazienka – ujęcie 1" loading="lazy" decoding="async"><span class="caption">Łazienka – ujęcie 1</span></div>
+                        <div class="gallery-item reveal"><img src="img/lazienka2.jpg" alt="Łazienka – ujęcie 2" loading="lazy" decoding="async"><span class="caption">Łazienka – ujęcie 2</span></div>
+                        <div class="gallery-item reveal"><img src="img/lazienka3.jpg" alt="Łazienka – ujęcie 3" loading="lazy" decoding="async"><span class="caption">Łazienka – ujęcie 3</span></div>
+                    </div>
+                </div>
 
-        <h3>Domek i okolica</h3>
-        <div class="gallery-grid">
-            <div class="gallery-item reveal"><img src="img/zewnatrz1.jpg"><span class="caption">Z zewnątrz – ujęcie 1</span></div>
-            <div class="gallery-item reveal"><img src="img/zewnatrz2.jpg"><span class="caption">Z zewnątrz – ujęcie 2</span></div>
-            <div class="gallery-item reveal"><img src="img/zewnatrz3.jpg"><span class="caption">Z zewnątrz – ujęcie 3</span></div>
-            <div class="gallery-item reveal"><img src="img/zewnatrz4.jpg"><span class="caption">Z zewnątrz – ujęcie 4</span></div>
-        </div>
+                <!-- SYPIALNIA -->
+                <div class="gallery-group" data-gallery-group="sypialnia" role="tabpanel">
+                    <h3>Sypialnia</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item reveal"><img src="img/sypialnia1.jpg" alt="Sypialnia – ujęcie 1" loading="lazy" decoding="async"><span class="caption">Sypialnia – ujęcie 1</span></div>
+                        <div class="gallery-item reveal"><img src="img/sypialnia2.jpg" alt="Sypialnia – ujęcie 2" loading="lazy" decoding="async"><span class="caption">Sypialnia – ujęcie 2</span></div>
+                        <div class="gallery-item reveal"><img src="img/sypialnia3.jpg" alt="Sypialnia – ujęcie 3" loading="lazy" decoding="async"><span class="caption">Sypialnia – ujęcie 3</span></div>
+                        <div class="gallery-item reveal"><img src="img/sypialnia4.jpg" alt="Sypialnia – ujęcie 4" loading="lazy" decoding="async"><span class="caption">Sypialnia – ujęcie 4</span></div>
+                    </div>
+                </div>
 
-    </article>
-</section>
-    <!-- CENNIK – WERSJA Z KARTĄ DLA 2 OSÓB I GRADIENTEM -->
+                <!-- ZEWNATRZ -->
+                <div class="gallery-group" data-gallery-group="zewnatrz" role="tabpanel">
+                    <h3>Domek i okolica</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item reveal"><img src="img/zewnatrz1.jpg" alt="Domek z zewnątrz – ujęcie 1" loading="lazy" decoding="async"><span class="caption">Z zewnątrz – ujęcie 1</span></div>
+                        <div class="gallery-item reveal"><img src="img/zewnatrz2.jpg" alt="Domek z zewnątrz – ujęcie 2" loading="lazy" decoding="async"><span class="caption">Z zewnątrz – ujęcie 2</span></div>
+                        <div class="gallery-item reveal"><img src="img/zewnatrz3.jpg" alt="Domek z zewnątrz – ujęcie 3" loading="lazy" decoding="async"><span class="caption">Z zewnątrz – ujęcie 3</span></div>
+                        <div class="gallery-item reveal"><img src="img/zewnatrz4.jpg" alt="Domek z zewnątrz – ujęcie 4" loading="lazy" decoding="async"><span class="caption">Z zewnątrz – ujęcie 4</span></div>
+                    </div>
+                </div>
+
+            </article>
+        </section>
+
+        <!-- CENNIK – WERSJA Z KARTĄ DLA 2 OSÓB I GRADIENTEM -->
         <section class="tab-panel" id="tab-cennik">
             <article class="card reveal">
                 <h2>Cennik pobytu</h2>
@@ -1945,6 +2137,22 @@
     </a>
 </div>
 
+
+<!-- LIGHTBOX (powiększanie zdjęć) -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-frame" role="dialog" aria-label="Podgląd zdjęć">
+        <div class="lb-topbar">
+            <div id="lbCounter" class="lb-counter">1 / 1</div>
+            <button id="lbClose" class="lb-close" type="button" aria-label="Zamknij">×</button>
+        </div>
+        <img id="lbImg" class="lightbox-img" src="" alt="Powiększone zdjęcie">
+        <div class="lb-nav" aria-hidden="false">
+            <button id="lbPrev" class="lb-btn" type="button" aria-label="Poprzednie">‹</button>
+            <button id="lbNext" class="lb-btn" type="button" aria-label="Następne">›</button>
+        </div>
+    </div>
+</div>
+
 <!-- COOKIES -->
 <div id="cookie-banner" class="cookie-banner" aria-live="polite" aria-label="Informacja o plikach cookies">
     <div class="cookie-content">
@@ -2042,6 +2250,142 @@
     revealEls.forEach(el => {
         revealObserver.observe(el);
     });
+</script>
+
+
+<script>
+/* ===== GALERIA: podzakładki + LIGHTBOX + licznik + swipe ===== */
+(function () {
+    const subBtns = Array.from(document.querySelectorAll('.gallery-subbtn'));
+    const groups = Array.from(document.querySelectorAll('.gallery-group'));
+
+    function setGalleryTab(name) {
+        subBtns.forEach(b => {
+            const active = b.dataset.galleryTab === name;
+            b.classList.toggle('active', active);
+            b.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        groups.forEach(g => g.classList.toggle('active', g.dataset.galleryGroup === name));
+    }
+
+    subBtns.forEach(btn => btn.addEventListener('click', () => setGalleryTab(btn.dataset.galleryTab)));
+
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    const lbCounter = document.getElementById('lbCounter');
+
+    if (!lightbox || !lbImg || !lbClose || !lbPrev || !lbNext || !lbCounter) return;
+
+    let currentList = [];
+    let currentIndex = 0;
+
+    function getVisibleImages() {
+        const activeGroup = document.querySelector('.gallery-group.active');
+        if (!activeGroup) return [];
+        return Array.from(activeGroup.querySelectorAll('.gallery-item img'));
+    }
+
+    function updateCounter() {
+        lbCounter.textContent = (currentIndex + 1) + ' / ' + (currentList.length || 1);
+    }
+
+    function openAt(index) {
+        currentList = getVisibleImages();
+        if (!currentList.length) return;
+        currentIndex = Math.max(0, Math.min(index, currentList.length - 1));
+        lbImg.src = currentList[currentIndex].src;
+        updateCounter();
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+    }
+
+    function next() {
+        if (!currentList.length) return;
+        currentIndex = (currentIndex + 1) % currentList.length;
+        lbImg.src = currentList[currentIndex].src;
+        updateCounter();
+    }
+
+    function prev() {
+        if (!currentList.length) return;
+        currentIndex = (currentIndex - 1 + currentList.length) % currentList.length;
+        lbImg.src = currentList[currentIndex].src;
+        updateCounter();
+    }
+
+    // Klik w miniaturę
+    function bindThumbClicks() {
+        const allThumbs = document.querySelectorAll('.gallery-item img');
+        allThumbs.forEach((img) => {
+            // nie dublujemy listenerów
+            if (img.dataset.lbBound) return;
+            img.dataset.lbBound = '1';
+            img.addEventListener('click', () => {
+                const visible = getVisibleImages();
+                const idx = visible.indexOf(img);
+                openAt(idx >= 0 ? idx : 0);
+            });
+        });
+    }
+    bindThumbClicks();
+
+    lbClose.addEventListener('click', close);
+    lbNext.addEventListener('click', next);
+    lbPrev.addEventListener('click', prev);
+
+    // Klik w tło zamyka
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) close();
+    });
+
+    // Klawiatura
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+    });
+
+    // Swipe (telefon)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touching = false;
+
+    lightbox.addEventListener('touchstart', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        const t = e.touches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+        touching = true;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e) => {
+        if (!lightbox.classList.contains('active') || !touching) return;
+        touching = false;
+
+        const t = e.changedTouches[0];
+        const dx = t.clientX - touchStartX;
+        const dy = t.clientY - touchStartY;
+
+        // ignorujemy ruch bardziej pionowy (scroll)
+        if (Math.abs(dy) > Math.abs(dx)) return;
+
+        // próg swipe
+        if (dx < -40) next();
+        if (dx > 40) prev();
+    }, { passive: true });
+})();
 </script>
 
 <!-- Cookies: zapis zgody w przeglądarce -->
